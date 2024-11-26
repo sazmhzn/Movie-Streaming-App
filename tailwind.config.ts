@@ -22,6 +22,9 @@ const config: Config = {
       },
     },
   },
+  images: {
+    domains: ["tmdb.org", "themoviedb.org"],
+  },
   plugins: [require("tailwindcss-animate")],
 };
 export default config;
