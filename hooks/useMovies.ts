@@ -48,7 +48,7 @@ export const useSearch = (query: string) => {
     setError("");
 
     axios
-      .get(`${API_URL}/search/movie?query=${query}`, {
+      .get(`${API_URL}/search/movie?`, {
         params: { query: query },
         headers: {
           accept: "application/json",
