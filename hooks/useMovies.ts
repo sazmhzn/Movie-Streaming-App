@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { debounce } from "lodash";
+import { Movie } from "@/type";
 
 const API_URL = "https://api.themoviedb.org/3/discover/";
 
@@ -44,7 +45,7 @@ export const useSearch = (query: string) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const debouncedSearch = debounce((query) => {
+  const debouncedSearch = debounce((query: string) => {
     setLoading(true);
     setError("");
 
@@ -115,7 +116,7 @@ export const useSearch = (query: string) => {
 // };
 
 export const useMovieId = (id: string) => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<Movie | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 

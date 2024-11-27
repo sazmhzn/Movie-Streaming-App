@@ -4,7 +4,6 @@ import MovieContainer from "@/components/MovieContainer";
 import { getImagePath } from "@/hooks/getImagePath";
 import { useMovieId } from "@/hooks/useMovies";
 
-import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 
@@ -41,29 +40,29 @@ const MovieDetails = ({ params: { id } }: Props) => {
             <p className="text-gray-200 text-sm">
               IMDB:{" "}
               <span className="text-white font-medium">
-                {movies.vote_average}
+                {movies?.vote_average}
               </span>
             </p>
             <p className="text-gray-200 text-sm">
               Votes:{" "}
               <span className="text-white font-medium">
-                {movies.vote_count}
+                {movies?.vote_count}
               </span>
             </p>
             <p className="text-gray-200 text-sm">
               Release Data:{" "}
               <span className="text-white font-medium">
-                {movies.release_date}
+                {movies?.release_date}
               </span>
             </p>
-            <p className="text-gray-200 text-sm">
+            {/* <p className="text-gray-200 text-sm">
               Genres:{" "}
-              {/* {movies?.genres.map((item: any) => (
+              {movies?.genres.map((item: any) => (
                 <span key={item?.id} className="text-white font-medium mr-1">
                   {item?.name},
                 </span>
-              ))} */}
-            </p>
+              ))}
+            </p> */}
             <p className="text-gray-200 text-sm">
               Tag Line:{" "}
               <span className="text-white font-medium">{movies?.tagline}</span>
@@ -93,7 +92,7 @@ const MovieDetails = ({ params: { id } }: Props) => {
         </p>
       )}
 
-      {!loading && !error && movies?.length > 0 && (
+      {!loading && !error && movies.length > 0 && (
         <div className="mt-6">
           <MovieContainer movies={movies} title="Popular Movies" isVertical />
         </div>

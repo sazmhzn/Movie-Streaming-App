@@ -2,6 +2,7 @@
 
 import CaroselBanner from "@/components/CarouselBanner";
 import MovieContainer from "@/components/MovieContainer";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useMovies } from "@/hooks/useMovies";
 
 import { useState } from "react";
@@ -14,6 +15,21 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen flex justify-center items-center flex-col overflow-hidden mx-auto">
+      {loading && (
+        <div className="flex w-full px-8 items-start">
+          <div className="space-y-2">
+            <Skeleton className="h-4 bg-gray-300 w-[250px]" />
+            <Skeleton className="h-4 bg-gray-300 w-[200px]" />
+          </div>
+        </div>
+      )}
+
+      {error && (
+        <p className="text-lg text-red-600 px-10">
+          Something went wrong: {error}. Please try again.
+        </p>
+      )}
+
       <CaroselBanner isMovie />
 
       <div className="w-full py-10">
@@ -24,8 +40,6 @@ export default function Home() {
             isLoading={loading}
             setIsMovie={setIsMovie}
           />
-          {/* <MovieContainer movies={upcomingMovies} title="Upcoming" />
-          <MovieContainer movies={topRatedMovies} title="Top Rated" /> */}
         </div>
       </div>
     </main>

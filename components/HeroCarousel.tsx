@@ -3,9 +3,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoPlay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { getImagePath } from "@/hooks/getImagePath";
-import { useCallback, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Movie } from "@/type";
 
 interface Props {
   movies: Movie[];
