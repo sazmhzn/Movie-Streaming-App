@@ -10,7 +10,10 @@ interface Props {
 }
 
 const HeroCarousel = ({ movies }: Props) => {
-  const autoplay = AutoPlay({ stopOnMouseEnter: true });
+  const autoplay = AutoPlay({
+    stopOnMouseEnter: true,
+    stopOnInteraction: false,
+  });
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay]);
 
   // Pause autoplay on hover
@@ -23,20 +26,22 @@ const HeroCarousel = ({ movies }: Props) => {
   // Resume autoplay on mouse leave
   const handleMouseLeave = useCallback(() => {
     if (emblaApi) {
-      autoplay.play; // Resume autoplay when no longer hovered
+      autoplay.play(); // Resume autoplay when no longer hovered
     }
   }, [emblaApi, autoplay]);
 
-  useEffect(() => {
-    if (emblaApi) {
-      console.log(emblaApi.slideNodes()); // Access API for debugging
-    }
-  }, [emblaApi]);
+  // useEffect(() => {
+  //   if (emblaApi) {
+  //     console.log(emblaApi.slideNodes());
+  //   }
+  // }, [emblaApi]);
+
   return (
     <section
-      className="p-0 m-0 overflow-hidden cursor-pointer relative"
+      className="p-0 m-0 overflow-hidden cursor-pointer relative -z-0"
       ref={emblaRef}
       onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
     >
       <div className="flex">
         {movies.map((movie) => (

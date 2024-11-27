@@ -33,7 +33,7 @@ export const useMovies = (isMovie: Boolean) => {
     };
 
     fetchMovies();
-  }, [isMovie]);
+  }, []);
 
   return { movies, loading, error };
 };
