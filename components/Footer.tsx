@@ -120,12 +120,12 @@ export const Footer = () => {
         </h2>
         <div className="text-gray-300 text-sm flex flex-col gap-2">
           <p>
-            Phone: <span className="text-white font-medium">001 7728 3369</span>
+            Phone: <span className="text-white font-medium">980 876 5677</span>
           </p>
           <p>
             Email:{" "}
             <span className="text-white font-medium">
-              noor.jsdivs@gmail.com
+              suron.maharjan@gmail.com
             </span>
           </p>
         </div>
