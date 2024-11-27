@@ -34,7 +34,6 @@ const Header = () => {
         {/* Others */}
         <div className="text-white flex space-x-2 items-center">
           {/* Genre */}
-          <GenreDropDown />
           {/* Search */}
           <SearchInput />
           {/* Theme */}
