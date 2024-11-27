@@ -120,7 +120,7 @@ export const useMovieId = (id: string) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const fetchMovies = async () => {
+    const fetchMovieDetails = async () => {
       setLoading(true);
       setError("");
       try {
@@ -133,8 +133,8 @@ export const useMovieId = (id: string) => {
             },
           }
         );
-        setMovies(response.data.results); // Assume results contain the list of movies
-        console.log(response.data.results);
+        setMovies(response.data);
+        console.log(response.data);
       } catch (err) {
         setError("Failed to fetch movie data. Please try again.");
         console.error(err);
@@ -143,7 +143,7 @@ export const useMovieId = (id: string) => {
       }
     };
 
-    fetchMovies();
+    if (id) fetchMovieDetails();
   }, []);
 
   return { movies, loading, error };

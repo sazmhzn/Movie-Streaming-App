@@ -15,16 +15,17 @@ interface Props {
 }
 
 const MovieDetails = ({ params: { id } }: Props) => {
-  const { details, loading, error } = useMovieId(id);
+  const { movies, loading, error } = useMovieId(id);
+  console.log(movies);
 
   return (
     <div className="mt-24">
       <div className="px-10">
         <div className="py-10 flex flex-col lg:flex-row items-center gap-5">
-          <div className="w-full lg:w-1/2 min-h-96 rounded-md overflow-hidden group">
+          <div className="w-full lg:w-1/2 md:min-h-96 rounded-md overflow-hidden group">
             <Image
-              src={getImagePath(details?.backdrop_path)}
-              alt={details?.title || "Poster"}
+              src={getImagePath(movies?.backdrop_path)}
+              alt={movies?.title || "Poster"}
               width={1920}
               height={1080}
               className="w-full h-full object-cover shadow-md shadow-gray-900 drop-shadow-xl group-hover:scale-110 duration-500"
@@ -32,51 +33,51 @@ const MovieDetails = ({ params: { id } }: Props) => {
           </div>
           <div className="w-full lg:w-1/2 flex flex-col gap-2">
             <h2 className="text-2xl font-semibold underline decoration-[1px]">
-              {details?.original_title}
+              {movies?.original_title}
             </h2>
             <p className="text-sm leading-6 tracking-wide mt-2">
-              {details?.overview}
+              {movies?.overview}
             </p>
             <p className="text-gray-200 text-sm">
               IMDB:{" "}
               <span className="text-white font-medium">
-                {/* {details.vote_average} */}
+                {movies.vote_average}
               </span>
             </p>
             <p className="text-gray-200 text-sm">
               Votes:{" "}
               <span className="text-white font-medium">
-                {/* {details.vote_count} */}
+                {movies.vote_count}
               </span>
             </p>
             <p className="text-gray-200 text-sm">
               Release Data:{" "}
               <span className="text-white font-medium">
-                {/* {details.release_date} */}
+                {movies.release_date}
               </span>
             </p>
             <p className="text-gray-200 text-sm">
               Genres:{" "}
-              {details?.genres.map((item: any) => (
+              {/* {movies?.genres.map((item: any) => (
                 <span key={item?.id} className="text-white font-medium mr-1">
                   {item?.name},
                 </span>
-              ))}
+              ))} */}
             </p>
             <p className="text-gray-200 text-sm">
               Tag Line:{" "}
-              <span className="text-white font-medium">{details?.tagline}</span>
+              <span className="text-white font-medium">{movies?.tagline}</span>
             </p>
             <p className="text-gray-200 text-sm">
               Status:{" "}
               <span
                 className={`font-medium ${
-                  details?.status === "Released"
+                  movies?.status === "Released"
                     ? "text-green-500"
                     : "text-red-500"
                 }`}
               >
-                {details?.status}
+                {movies?.status}
               </span>
             </p>
           </div>
@@ -92,9 +93,9 @@ const MovieDetails = ({ params: { id } }: Props) => {
         </p>
       )}
 
-      {!loading && !error && details?.length > 0 && (
+      {!loading && !error && movies?.length > 0 && (
         <div className="mt-6">
-          <MovieContainer movies={details} title="Popular Movies" isVertical />
+          <MovieContainer movies={movies} title="Popular Movies" isVertical />
         </div>
       )}
     </div>
