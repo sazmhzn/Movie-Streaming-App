@@ -11,7 +11,7 @@ const Header = () => {
         {/* Logo */}
         <Link
           href={"/"}
-          className="bg-blue-500 px-4 py-2 font-bold rounded-md uppercase"
+          className="bg-blue-500 p-1 md:px-4 md:py-2 font-bold rounded-md uppercase"
         >
           {/* <Image
           src=""
@@ -24,7 +24,7 @@ const Header = () => {
           BitMovies
         </Link>
         <nav className="hidden md:block">
-          <ul className="flex gap-12">
+          <ul className="flex gap-4 lg:gap-12">
             <li>Home</li>
             <li>Country</li>
             <li>Movies</li>

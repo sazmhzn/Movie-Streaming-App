@@ -8,9 +8,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [isMovie, setIsMovie] = useState(true);
-  // const [popularMovies, setPopularMovies] = useState(null);
   const { movies, loading, error } = useMovies(isMovie);
-  const [filteredMovies, setFilteredMovies] = useState([]);
 
   if (error) return <div className="my-40">{error}</div>;
 

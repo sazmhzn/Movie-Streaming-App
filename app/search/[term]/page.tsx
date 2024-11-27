@@ -17,7 +17,7 @@ const SearchPage = ({ params: { term } }: Props) => {
 
   return (
     <div className="py-10 max-w-screen-xl mx-auto">
-      <h2 className="text-4xl font-bold px-10 mt-40 mb-5">
+      <h2 className="text-4xl font-bold px-10 mt-24 mb-5">
         Results for {termToUse}
       </h2>
       {loading && (

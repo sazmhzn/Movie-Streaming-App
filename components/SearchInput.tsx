@@ -27,11 +27,6 @@ const SearchInput = () => {
     form.reset();
   };
 
-  const { data, loading, error } = useSearch(form.getValues().input);
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <Form {...form}>
       <form
@@ -44,7 +39,11 @@ const SearchInput = () => {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Search ..." {...field} />
+                <Input
+                  className="text-white placeholder:text-gray-100"
+                  placeholder="Search ..."
+                  {...field}
+                />
               </FormControl>
             </FormItem>
           )}
