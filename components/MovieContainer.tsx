@@ -24,7 +24,7 @@ const MovieContainer = ({ title, movies, isVertical, isLoading }: Props) => {
       </div>
       <div
         className={cn(
-          "grid lg:grid-cols-7 md:grid-cols-5 grid-cols-2 gap-4 px-0 lg:px-10 py-5",
+          "grid lg:grid-cols-6 md:grid-cols-5 grid-cols-2 gap-4 px-8 lg:px-10 py-5",
           isVertical && " flex-col space-x-0 space-y-12"
         )}
       >
@@ -37,10 +37,9 @@ const MovieContainer = ({ title, movies, isVertical, isLoading }: Props) => {
                     "flex flex-col space-y-5 mb-5 items-center lg:flex-row space-x-5"
                 )}
               >
-                <Skeleton className="h-[300px] w-[200px] bg-gray-400 rounded-xl" />
-                <div className="max-w-2xl">
-                  <hr className="mb-3" />
-                  <Skeleton className="h-4 bg-gray-400 w-[200px]" />
+                <Skeleton className="h-[300px] w-full bg-gray-400 rounded-xl" />
+                <div className="max-w-2xl my-2">
+                  <Skeleton className="h-4 bg-gray-400 w-full" />
                 </div>
               </div>
             ))

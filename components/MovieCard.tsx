@@ -21,7 +21,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
         alt={movie?.original_title}
         width={1920}
         height={1080}
-        className="aspect-auto group-hover:scale-[102%] w-fit h-64 object-cover shadow-md rounded-md drop-shadow-xl"
+        className="aspect-auto group-hover:scale-[102%] h-64 object-cover shadow-md rounded-md drop-shadow-xl"
       />
       <p className="px-4 font-medium text-sm">
         {movie?.original_title} ({movie?.release_date?.split("-")[0]})
