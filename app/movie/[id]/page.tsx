@@ -55,14 +55,14 @@ const MovieDetails = ({ params: { id } }: Props) => {
                 {movies?.release_date}
               </span>
             </p>
-            {/* <p className="text-gray-200 text-sm">
+            <p className="text-gray-200 text-sm">
               Genres:{" "}
               {movies?.genres.map((item: any) => (
                 <span key={item?.id} className="text-white font-medium mr-1">
                   {item?.name},
                 </span>
               ))}
-            </p> */}
+            </p>
             <p className="text-gray-200 text-sm">
               Tag Line:{" "}
               <span className="text-white font-medium">{movies?.tagline}</span>
@@ -94,7 +94,7 @@ const MovieDetails = ({ params: { id } }: Props) => {
 
       {!loading && !error && movies && (
         <div className="mt-6">
-          <MovieContainer movies={[movies]} title="Popular Movies" isVertical />
+          <MovieContainer movies={[movies]} title="Popular Movies" />
         </div>
       )}
     </div>

@@ -14,6 +14,7 @@ export type Movie = {
   vote_average?: number;
   vote_count?: number;
   status: string;
+  genres: [];
   tagline?: string;
   length?: number | 0;
 };
