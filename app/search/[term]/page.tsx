@@ -12,8 +12,8 @@ interface Props {
 
 const SearchPage = ({ params: { term } }: Props) => {
   const termToUse = decodeURI(term);
-  const { movies, loading, error } = useSearch(termToUse);
-  console.log(movies);
+  const { data, loading, error } = useSearch(termToUse);
+  // console.log(movies);
 
   return (
     <div className="py-10 max-w-screen-xl mx-auto">
@@ -30,17 +30,16 @@ const SearchPage = ({ params: { term } }: Props) => {
         </p>
       )}
 
-      {!loading && !error && movies?.length === 0 && (
+      {!loading && !error && data?.length === 0 && (
         <p className="text-lg text-gray-500 px-10">
-          No results found for "{decodedTerm}". Try searching for something
-          else.
+          No results found for "{termToUse}". Try searching for something else.
         </p>
       )}
 
-      {!loading && !error && movies?.length > 0 && (
+      {!loading && !error && data?.length > 0 && (
         <MovieContainer
-          title={`Search Results for "${decodedTerm}"`}
-          movies={movies}
+          title={`Search Results for "${termToUse}"`}
+          movies={data}
           isLoading={loading}
         />
       )}
