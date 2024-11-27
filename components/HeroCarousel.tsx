@@ -44,7 +44,7 @@ const HeroCarousel = ({ movies }: Props) => {
                 className=" cursor-pointer w-screen object-cover aspect-auto min-h-[50vh] md:min-h-screen bg-red-100"
               />
             </Link>
-            <div className="hidden pointer-events-none lg:inline absolute bottom-0 pt-40 xl:pt-72 left-0 bg-transparent z-20 bg-red-200 h-full w-full bg-gradient-to-r from-gray-900/90 via-transparent to-transparent p-10 space-y-5 text-white">
+            <div className=" pointer-events-none lg:inline absolute bottom-0 pt-40 xl:pt-72 left-0 bg-transparent z-20 bg-red-200 h-full w-full bg-gradient-to-r from-gray-900/90 via-transparent to-transparent p-10 space-y-5 text-white">
               <h2 className="text-5xl font-bold max-w-xl">{movie?.title}</h2>
               <p className="max-w-xl line-clamp-3">{movie?.overview}</p>
             </div>
