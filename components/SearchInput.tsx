@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
+import { useSearch } from "@/hooks/useMovies";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   input: z.string().min(2).max(30),
@@ -23,6 +25,11 @@ const SearchInput = () => {
     router.push(`/search/${values.input}`);
     form.reset();
   };
+
+  const { data, loading, error } = useSearch(form.getValues().input);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <Form {...form}>

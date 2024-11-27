@@ -8,8 +8,8 @@ type Props = {
   title?: string;
   movies: Movie[];
   isVertical?: boolean;
-  isLoading: boolean;
-  setIsMovie: (value: boolean) => boolean;
+  isLoading?: boolean;
+  setIsMovie?: (value: boolean) => boolean;
 };
 
 const MovieContainer = ({

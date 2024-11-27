@@ -33,3 +33,12 @@ export const getPopularMovies = async () => {
   const data = await fetcher(url);
   return data.results;
 };
+
+export const getSearchedMovies = async (term: string) => {
+  const url = new URL("https://api.themoviedb.org/3/search/movie");
+  url.searchParams.set("query", term);
+  console.log(url);
+
+  const data = await fetcher(url);
+  return data.results;
+};

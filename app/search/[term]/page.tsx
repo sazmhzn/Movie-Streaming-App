@@ -1,5 +1,5 @@
 import MovieContainer from "@/components/MovieContainer";
-import { getPopularMovies } from "@/lib/getMovies";
+import { getPopularMovies, getSearchedMovies } from "@/lib/getMovies";
 
 interface Props {
   params: {
@@ -9,9 +9,10 @@ interface Props {
 
 const SearchPage = async ({ params: { term } }: Props) => {
   const termToUse = decodeURI(term);
+  console.log(termToUse);
 
   const movies = await getSearchedMovies(termToUse);
-  const popularMovies = await getPopularMovies();
+  // const popularMovies = await getPopularMovies();
 
   return (
     <div className="py-10 max-w-screen-xl mx-auto">

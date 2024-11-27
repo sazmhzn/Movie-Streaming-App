@@ -37,3 +37,40 @@ export const useMovies = (isMovie: Boolean) => {
 
   return { movies, loading, error };
 };
+
+export const useSearch = (query: string) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      setError("");
+
+      try {
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/search/movie?query=${query}`,
+          {
+            headers: {
+              accept: "application/json",
+              Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
+            },
+          }
+        );
+        setData(response.data.results);
+      } catch (err) {
+        setError("Failed to fetch search data. Please try again.");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (query) {
+      fetchData();
+    }
+  }, [query]);
+
+  return { data, loading, error };
+};

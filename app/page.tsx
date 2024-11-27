@@ -12,7 +12,7 @@ export default function Home() {
   const { movies, loading, error } = useMovies(isMovie);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
-  if (error) return <div>{error}</div>;
+  if (error) return <div className="my-40">{error}</div>;
 
   return (
     <main className="relative min-h-screen flex justify-center items-center flex-col overflow-hidden mx-auto">
