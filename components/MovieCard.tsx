@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Metadata } from "next";
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
   const router = useRouter();
@@ -23,7 +22,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
         height={1080}
         className="w-fit h-64 object-cover shadow-md border overflow-hidden rounded-md drop-shadow-xl"
       />
-      <p className="font-bold">
+      <p className="font-medium text-sm">
         {movie?.original_title} ({movie?.release_date?.split("-")[0]})
       </p>{" "}
     </div>

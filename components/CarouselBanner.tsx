@@ -8,8 +8,8 @@ interface Props {
   keywords?: string;
 }
 
-const CaroselBanner = ({ id, keywords }: Props) => {
-  const { movies, loading, error } = useMovies();
+const CaroselBanner = (isMovie: Boolean) => {
+  const { movies, loading, error } = useMovies(isMovie);
 
   return <HeroCarousel movies={movies} />;
 };

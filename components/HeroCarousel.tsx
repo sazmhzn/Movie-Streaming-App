@@ -23,7 +23,7 @@ const HeroCarousel = ({ movies }: Props) => {
   // Resume autoplay on mouse leave
   const handleMouseLeave = useCallback(() => {
     if (emblaApi) {
-      autoplay.play(); // Resume autoplay when no longer hovered
+      autoplay.play; // Resume autoplay when no longer hovered
     }
   }, [emblaApi, autoplay]);
 
@@ -34,19 +34,22 @@ const HeroCarousel = ({ movies }: Props) => {
   }, [emblaApi]);
   return (
     <section
-      className=" overflow-hidden cursor-pointer relative"
+      className="p-0 m-0 overflow-hidden cursor-pointer relative"
       ref={emblaRef}
       onMouseLeave={handleMouseLeave}
     >
       <div className="flex">
         {movies.map((movie) => (
-          <div key={movie?.id} className="flex-[0_0_100%] min-w-0 relative">
+          <div
+            key={movie?.id}
+            className="flex-[0_0_100%] bg-red-300 min-w-0 relative"
+          >
             <Image
               src={getImagePath(movie?.backdrop_path, true)}
               alt={movie?.title}
               width={1920}
               height={1080}
-              className="w-screen object-contain aspect-auto min-h-screen bg-red-100"
+              className="w-screen object-cover aspect-auto min-h-[50vh] md:min-h-screen bg-red-100"
             />
             <div className="hidden lg:inline absolute bottom-0 pt-40 xl:pt-72 left-0 bg-transparent z-20 h-full w-full bg-gradient-to-r from-gray-900/90 via-transparent to-transparent p-10 space-y-5 text-white">
               <h2 className="text-5xl font-bold max-w-xl">{movie?.title}</h2>
@@ -55,7 +58,7 @@ const HeroCarousel = ({ movies }: Props) => {
           </div>
         ))}
       </div>
-      <div className="absolute top-0 left-0 inset-0 bg-gradient-to-b from-gray-900/10 via-gray-900/30 to-gray-300 dark:to-[#121212]" />
+      <div className="absolute top-0 left-0 inset-0 bg-gradient-to-b from-black-100/10 via-gray-900/30 to-black dark:to-[#121212]" />
     </section>
   );
 };
