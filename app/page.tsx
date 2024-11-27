@@ -5,8 +5,6 @@ import MovieContainer from "@/components/MovieContainer";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useMovies } from "@/hooks/useMovies";
 
-import { useState } from "react";
-
 export default function Home() {
   const { movies, loading, error } = useMovies();
 

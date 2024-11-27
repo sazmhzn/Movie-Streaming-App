@@ -31,7 +31,8 @@ const SearchPage = ({ params: { term } }: Props) => {
 
       {!loading && !error && data?.length === 0 && (
         <p className="text-lg text-gray-500 px-10">
-          No results found for "{termToUse}". Try searching for something else.
+          No results found for &quot{termToUse}&quot. Try searching for
+          something else.
         </p>
       )}
 
