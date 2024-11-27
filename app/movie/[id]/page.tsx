@@ -28,7 +28,7 @@ const MovieDetails = ({ params: { id } }: Props) => {
               alt={movies?.title || "Poster"}
               width={1920}
               height={1080}
-              className="w-full h-full object-cover shadow-md shadow-gray-900 drop-shadow-xl group-hover:scale-110 duration-500"
+              className="w-full rounded-md h-full object-cover shadow-md shadow-gray-900 drop-shadow-xl group-hover:scale-110 duration-500"
             />
           </div>
           <div className="w-full lg:w-1/2 flex flex-col gap-2">

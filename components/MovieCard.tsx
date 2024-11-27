@@ -10,7 +10,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
   return (
     <div
       onClick={hanldeRoute}
-      className="relative flex flex-col items-center gap-2 flex-shrink-0 cursor-pointer rounded-md transform transition duration-200 ease-out hover:drop-shadow-md"
+      className="relative group flex flex-col overflow-hidden items-center gap-2 flex-shrink-0 cursor-pointer rounded-md transform transition duration-200 ease-out hover:drop-shadow-md"
     >
       <Image
         src={
@@ -20,9 +20,9 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
         alt={movie?.original_title}
         width={1920}
         height={1080}
-        className="w-fit h-64 object-cover shadow-md border overflow-hidden rounded-md drop-shadow-xl"
+        className="aspect-auto group-hover:scale-[102%] w-fit h-64 object-cover shadow-md rounded-md drop-shadow-xl"
       />
-      <p className="font-medium text-sm">
+      <p className="px-4 font-medium text-sm">
         {movie?.original_title} ({movie?.release_date?.split("-")[0]})
       </p>{" "}
     </div>
