@@ -57,7 +57,7 @@ const MovieDetails = ({ params: { id } }: Props) => {
             </p>
             <p className="text-gray-200 text-sm">
               Genres:{" "}
-              {movies?.genres.map((item: any) => (
+              {movies?.genres.map((item: { id: string; name: string }) => (
                 <span key={item?.id} className="text-white font-medium mr-1">
                   {item?.name},
                 </span>
