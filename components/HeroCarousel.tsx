@@ -18,7 +18,7 @@ const HeroCarousel = ({ movies }: Props) => {
     stopOnMouseEnter: true,
     stopOnInteraction: false,
   });
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [autoplay]);
 
   return (
     <section

@@ -3,7 +3,8 @@ import axios from "axios";
 import { debounce } from "lodash";
 import { Movie } from "@/type";
 
-const API_URL = "https://api.themoviedb.org/3/discover/";
+// const API_URL = "https://api.themoviedb.org/3/discover/";
+const API_URL = "https://api.themoviedb.org/3";
 
 export const useMovies = () => {
   const [movies, setMovies] = useState([]);
@@ -15,7 +16,7 @@ export const useMovies = () => {
       setLoading(true);
       setError("");
       try {
-        const response = await axios.get(`${API_URL}movie`, {
+        const response = await axios.get(`${API_URL}/discover/movie`, {
           headers: {
             accept: "application/json",
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_BEARER_TOKEN}`,
@@ -47,7 +48,7 @@ export const useSearch = (query: string) => {
     setError("");
 
     axios
-      .get(`https://api.themoviedb.org/3/search/movie?query=${query}`, {
+      .get(`${API_URL}/search/movie?query=${query}`, {
         params: { query: query },
         headers: {
           accept: "application/json",
@@ -124,7 +125,7 @@ export const useMovieId = (id: string) => {
       setError("");
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+          `${API_URL}/movie/${id}?language=en-US`,
           {
             headers: {
               accept: "application/json",
