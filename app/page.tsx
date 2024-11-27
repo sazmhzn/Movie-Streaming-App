@@ -8,8 +8,7 @@ import { useMovies } from "@/hooks/useMovies";
 import { useState } from "react";
 
 export default function Home() {
-  const [isMovie, setIsMovie] = useState(true);
-  const { movies, loading, error } = useMovies(isMovie);
+  const { movies, loading, error } = useMovies();
 
   if (error) return <div className="my-40">{error}</div>;
 
@@ -30,7 +29,7 @@ export default function Home() {
         </p>
       )}
 
-      <CaroselBanner isMovie />
+      <CaroselBanner />
 
       <div className="w-full py-10">
         <div className="flex flex-col space-y-2">
@@ -38,7 +37,6 @@ export default function Home() {
             title="Popular Movies"
             movies={movies}
             isLoading={loading}
-            setIsMovie={setIsMovie}
           />
         </div>
       </div>

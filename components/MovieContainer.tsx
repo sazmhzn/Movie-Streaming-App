@@ -1,8 +1,6 @@
-import Link from "next/link";
 import MovieCard from "./MovieCard";
 import { cn } from "@/lib/utils";
-import { SkeletonLoader } from "./SkeletonLoader";
-import { Button } from "./ui/button";
+
 import { Skeleton } from "./ui/skeleton";
 import { Movie } from "@/type";
 
@@ -14,13 +12,7 @@ type Props = {
   setIsMovie?: (value: boolean) => boolean;
 };
 
-const MovieContainer = ({
-  title,
-  movies,
-  isVertical,
-  isLoading,
-  setIsMovie,
-}: Props) => {
+const MovieContainer = ({ title, movies, isVertical, isLoading }: Props) => {
   return (
     <div className="">
       <div className=" w-full sm:px-10 px-5 py-2 flex items-center justify-between border-b border-b-gray-500 relative mb-4">

@@ -5,7 +5,7 @@ import { Movie } from "@/type";
 
 const API_URL = "https://api.themoviedb.org/3/discover/";
 
-export const useMovies = (isMovie: Boolean) => {
+export const useMovies = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -15,15 +15,12 @@ export const useMovies = (isMovie: Boolean) => {
       setLoading(true);
       setError("");
       try {
-        const response = await axios.get(
-          `${API_URL}${isMovie ? "movie" : "tv"}`,
-          {
-            headers: {
-              accept: "application/json",
-              Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
-            },
-          }
-        );
+        const response = await axios.get(`${API_URL}movie`, {
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_BEARER_TOKEN}`,
+          },
+        });
         setMovies(response.data.results); // Assume results contain the list of movies
         console.log(response.data.results);
       } catch (err) {
@@ -54,7 +51,8 @@ export const useSearch = (query: string) => {
         params: { query: query },
         headers: {
           accept: "application/json",
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxY2ViYTE1YzhlOTMwNmExNGMxZWQ3ZDUyYTRlNGFhMCIsIm5iZiI6MTczMjYxMjEwNC4xMTAzNDA0LCJzdWIiOiI2NzQ1OGRkMzgwYjQ0YTg5MzdiN2MzNDUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.f5pYhZOw9kt_ZFyPzWay-D1seZ2dOGJ43W7Mb5-a-A0`,
+          // Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxY2ViYTE1YzhlOTMwNmExNGMxZWQ3ZDUyYTRlNGFhMCIsIm5iZiI6MTczMjYxMjEwNC4xMTAzNDA0LCJzdWIiOiI2NzQ1OGRkMzgwYjQ0YTg5MzdiN2MzNDUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.f5pYhZOw9kt_ZFyPzWay-D1seZ2dOGJ43W7Mb5-a-A0`,
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_BEARER_TOKEN}`,
         },
       })
       .then((response) => {
@@ -130,7 +128,7 @@ export const useMovieId = (id: string) => {
           {
             headers: {
               accept: "application/json",
-              Authorization: `Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxY2ViYTE1YzhlOTMwNmExNGMxZWQ3ZDUyYTRlNGFhMCIsIm5iZiI6MTczMjYxMjEwNC4xMTAzNDA0LCJzdWIiOiI2NzQ1OGRkMzgwYjQ0YTg5MzdiN2MzNDUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.f5pYhZOw9kt_ZFyPzWay-D1seZ2dOGJ43W7Mb5-a-A0`,
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_BEARER_TOKEN}`,
             },
           }
         );

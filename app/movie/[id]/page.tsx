@@ -92,9 +92,9 @@ const MovieDetails = ({ params: { id } }: Props) => {
         </p>
       )}
 
-      {!loading && !error && movies.length > 0 && (
+      {!loading && !error && movies && (
         <div className="mt-6">
-          <MovieContainer movies={movies} title="Popular Movies" isVertical />
+          <MovieContainer movies={[movies]} title="Popular Movies" isVertical />
         </div>
       )}
     </div>

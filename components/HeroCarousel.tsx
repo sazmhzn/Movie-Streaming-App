@@ -13,9 +13,7 @@ interface Props {
 
 const HeroCarousel = ({ movies }: Props) => {
   const router = useRouter();
-  const hanldeRoute = (id) => {
-    router.push(`/movie/${id}`);
-  };
+
   const autoplay = AutoPlay({
     stopOnMouseEnter: true,
     stopOnInteraction: false,
